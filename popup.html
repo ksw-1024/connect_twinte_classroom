@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Twin:teに教室情報を自動で追加するだけ</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Twin:teに教室情報を自動で追加するだけ</h1>
+
+    <!-- Excelファイル選択セクション -->
+    <div class="file-section">
+      <div class="file-input-container">
+        <input type="file" id="excelFile" accept=".xlsx, .xls" class="file-input" />
+        <label for="excelFile" class="file-label">教室情報のExcelファイルを選択</label>
+      </div>
+      <div id="fileName" class="file-name"></div>
+    </div>
+
+    <!-- アクションボタンと結果表示 -->
+    <div class="button-container">
+      <button id="autoProcessButton" class="action-button action-button--secondary" disabled>入力開始</button>
+    </div>
+    <div id="result" class="result"></div>
+    <div id="courseList" class="course-list"></div>
+  </div>
+
+  <!-- Excel処理用のライブラリ（ローカル） -->
+  <script src="xlsx.full.min.js"></script>
+  <script src="popup.js"></script>
+</body>
+
+</html>

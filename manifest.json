@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Twin:teに教室情報を自動で追加するだけ",
+  "version": "1.0",
+  "description": "A basic Chrome extension template",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "tabs"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon_x16.png",
+      "128": "images/icon_x128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "icons": {
+    "16": "images/icon_x16.png",
+    "128": "images/icon_x128.png"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}
