@@ -345,7 +345,7 @@ document.addEventListener('DOMContentLoaded', function () {
   chrome.storage.local.get(['courseData'], function (result) {
     if (result.courseData) {
       excelData = result.courseData;
-      actionButton.disabled = false;
+      autoProcessButton.disabled = false;
       document.getElementById('autoProcessButton').disabled = false;
       resultDiv.textContent = '保存されたデータを読み込みました。';
       resultDiv.style.color = '#4CAF50';
