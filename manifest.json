@@ -19,9 +19,12 @@
       "128": "images/icon_x128.png"
     }
   },
+  "host_permissions": [
+    "https://app.twinte.net/*"
+  ],
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
+      "matches": ["https://app.twinte.net/*"],
       "js": ["content.js"]
     }
   ],
