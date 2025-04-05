@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Twin:teに教室情報を自動で追加するだけ",
-  "version": "1.0",
+  "version": "1.1",
   "description": "Twin:teの授業情報に教室情報を自動で追加します。TWINSからダウンロードしたExcelファイルを読み込んで、一括で教室情報を入力できます。",
   "permissions": [
     "activeTab",
