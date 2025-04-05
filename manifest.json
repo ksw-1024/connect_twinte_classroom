@@ -15,8 +15,8 @@
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
-      "16": "images/icon_x16.png",
-      "128": "images/icon_x128.png"
+      "16": "images/icon_x16.ico",
+      "128": "images/icon_x128.ico"
     }
   },
   "content_scripts": [
@@ -26,8 +26,8 @@
     }
   ],
   "icons": {
-    "16": "images/icon_x16.png",
-    "128": "images/icon_x128.png"
+    "16": "images/icon_x16.ico",
+    "128": "images/icon_x128.ico"
   },
   "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'self'"
