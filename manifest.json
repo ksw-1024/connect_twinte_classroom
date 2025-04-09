@@ -5,7 +5,6 @@
   "description": "Twin:teの授業情報に教室情報を自動で追加します。TWINSからダウンロードしたExcelファイルを読み込んで、一括で教室情報を入力できます。",
   "permissions": [
     "activeTab",
-    "scripting",
     "storage",
     "tabs"
   ],
