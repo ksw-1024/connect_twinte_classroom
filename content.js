@@ -1,23 +1,6 @@
 // コンテンツスクリプト
 console.log('Content script loaded');
 
-// Google Analyticsのリクエストをインターセプトして修正
-const originalXHR = window.XMLHttpRequest;
-window.XMLHttpRequest = function() {
-  const xhr = new originalXHR();
-  const originalOpen = xhr.open;
-  
-  xhr.open = function() {
-    const url = arguments[1];
-    if (url && url.includes('google-analytics.com')) {
-      this.withCredentials = false;
-    }
-    return originalOpen.apply(this, arguments);
-  };
-  
-  return xhr;
-};
-
 // 科目番号を取得する関数
 function getCourseCode() {
   return new Promise((resolve) => {

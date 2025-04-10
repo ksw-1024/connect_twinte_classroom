@@ -48,6 +48,11 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log('Using sheet:', firstSheetName);
         const worksheet = workbook.Sheets[firstSheetName];
 
+        // 読み込み範囲を設定（A5から開始）
+        const range = XLSX.utils.decode_range(worksheet['!ref']);
+        range.s.r = 4;  // 5行目から開始（0-based indexing）
+        worksheet['!ref'] = XLSX.utils.encode_range(range);
+
         // ワークシートの範囲を確認
         console.log('Worksheet range:', worksheet['!ref']);
 
