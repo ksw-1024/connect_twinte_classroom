@@ -2,6 +2,8 @@
 
 Twin:teの授業情報に教室情報を自動で追加するChrome拡張機能です。Excelファイルから教室情報を読み込み、Twin:teの授業ページで自動入力を行います。
 
+https://chrome.google.com/webstore/detail/lomdamcfookckjfahmoflflofdndamjk
+
 ## 機能
 
 - Excelファイルからの教室情報の読み込み
