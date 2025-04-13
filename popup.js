@@ -48,9 +48,38 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log('Using sheet:', firstSheetName);
         const worksheet = workbook.Sheets[firstSheetName];
 
-        // 読み込み範囲を設定（A5から開始）
+        // ヘッダー行を探す
         const range = XLSX.utils.decode_range(worksheet['!ref']);
-        range.s.r = 4;  // 5行目から開始（0-based indexing）
+        let headerRowIndex = -1;
+
+        // 各行を走査してヘッダー行を探す
+        for (let r = range.s.r; r <= range.e.r; r++) {
+          let hasSubjectCode = false;
+          let hasClassroom = false;
+
+          // その行の各セルを確認
+          for (let c = range.s.c; c <= range.e.c; c++) {
+            const cellAddress = XLSX.utils.encode_cell({ r: r, c: c });
+            const cell = worksheet[cellAddress];
+            if (cell && cell.v) {
+              if (cell.v.toString().includes('科目番号')) hasSubjectCode = true;
+              if (cell.v.toString().includes('教室')) hasClassroom = true;
+            }
+          }
+
+          // 両方のヘッダーが見つかった場合
+          if (hasSubjectCode && hasClassroom) {
+            headerRowIndex = r;
+            break;
+          }
+        }
+
+        if (headerRowIndex === -1) {
+          throw new Error('ヘッダー行（科目番号と教室を含む行）が見つかりませんでした。');
+        }
+
+        // 読み込み範囲をヘッダー行から設定
+        range.s.r = headerRowIndex
         worksheet['!ref'] = XLSX.utils.encode_range(range);
 
         // ワークシートの範囲を確認
